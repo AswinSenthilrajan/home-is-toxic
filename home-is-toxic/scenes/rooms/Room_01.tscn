@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duyqwpge3y6o2" path="res://scripts/Room.gd" id="1_raggc"]
 [ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_ugvc2"]
-[ext_resource type="Texture2D" uid="uid://dbc628e2qy48x" path="res://sprites/can_breath.PNG" id="2_51gqb"]
+[ext_resource type="Texture2D" uid="uid://b646bs3adqgtv" path="res://sprites/can_breath.PNG" id="2_51gqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raggc"]
 texture = ExtResource("1_ugvc2")

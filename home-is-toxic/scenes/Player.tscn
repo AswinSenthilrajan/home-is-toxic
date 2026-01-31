@@ -23,3 +23,7 @@ shape = SubResource("CapsuleShape2D_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=704558696]
 shape = SubResource("CircleShape2D_kpjcp")
+
+[node name="Air_Timer" type="Timer" parent="." unique_id=182913765]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1959992123]

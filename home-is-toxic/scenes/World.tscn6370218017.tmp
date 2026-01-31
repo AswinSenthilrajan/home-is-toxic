@@ -31,7 +31,7 @@ zoom = Vector2(0.25, 0.25)
 [node name="Map" type="Node" parent="." unique_id=475516838]
 script = ExtResource("5_1lgw5")
 center = ExtResource("6_hlk0d")
-ring1 = Array[PackedScene]([ExtResource("6_hlk0d"), null, null, null, null, null, null, null])
+ring1 = Array[PackedScene]([ExtResource("6_hlk0d"), ExtResource("6_hlk0d"), ExtResource("6_hlk0d"), ExtResource("6_hlk0d"), ExtResource("6_hlk0d"), ExtResource("6_hlk0d"), ExtResource("6_hlk0d")])
 
 [connection signal="body_exited" from="WorldBounds" to="WorldBounds" method="_on_body_exited"]
 [connection signal="player_exited" from="WorldBounds" to="." method="_on_world_bounds_player_exited"]

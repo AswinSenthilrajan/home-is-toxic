@@ -2,18 +2,21 @@ extends CharacterBody2D
 
 @export var speed: float = 120.0
 @export var sprint_multiplier = 5.0
-@export var health: int = 18
+@export var max_health: int = 18
 @export var airTime: float = 10.0
 @onready var air_timer: Timer = $Air_Timer
 
 @onready var interact_area: Area2D = $InteractArea
 var nearby: Array[Interactable] = []
 var current: Interactable = null
+var health: float = max_health
 
 signal health_changed(new_health: int)
 
 func _ready() -> void:
 	health_changed.emit(health)
+	interact_area.area_entered.connect(_on_interact_area_area_entered)
+	interact_area.area_exited.connect(_on_interact_area_area_exited)
 	entered_gas()
 
 func entered_gas() -> void:
@@ -21,8 +24,6 @@ func entered_gas() -> void:
 
 func exited_gas() -> void:
 	air_timer.stop()
-	interact_area.area_entered.connect(_on_interact_area_area_entered)
-	interact_area.area_exited.connect(_on_interact_area_area_exited)
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
@@ -49,12 +50,17 @@ func _pick_best() -> void:
 			best_dist = d
 			best = it
 	current = best
+	
 func apply_damage(damage: int) -> void:
 	health -= damage
 	health_changed.emit(health)
 
 func set_health(new_health: int) -> void:
 	health = new_health
+	health_changed.emit(health)
+	
+func reset_health() -> void:
+	health = max_health
 	health_changed.emit(health)
 
 func _on_interact_area_area_entered(area: Area2D) -> void:

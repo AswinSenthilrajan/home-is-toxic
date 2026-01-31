@@ -91,6 +91,6 @@ position = Vector2(757, 432)
 position = Vector2(465, -15)
 
 [node name="PickupItem" parent="." unique_id=645996433 instance=ExtResource("3_w2xtu")]
-position = Vector2(988, 513)
+position = Vector2(125, -28)
 item_id = &"key_1"
 icon = ExtResource("1_bar6c")
