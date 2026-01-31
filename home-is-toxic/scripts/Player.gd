@@ -2,14 +2,17 @@ extends CharacterBody2D
 
 @export var speed: float = 120.0
 @export var sprint_multiplier = 5.0
+@export var sprint_multiplier = 1.5
+@export var health: int = 18
 
 @onready var interact_area: Area2D = $InteractArea
 var nearby: Array[Interactable] = []
 var current: Interactable = null
 
+signal health_changed(new_health: int)
+
 func _ready() -> void:
-	interact_area.area_entered.connect(_on_area_entered)
-	interact_area.area_exited.connect(_on_area_exited)
+	health_changed.emit(health)
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
@@ -24,16 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current:
 			current.interact(self)
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is Interactable:
-		nearby.append(area)
-		_pick_best()
-
-func _on_area_exited(area: Area2D) -> void:
-	if area is Interactable:
-		nearby.erase(area)
-		_pick_best()
-
 func _pick_best() -> void:
 	# Choose closest interactable
 	var best: Interactable = null
@@ -46,3 +39,22 @@ func _pick_best() -> void:
 			best_dist = d
 			best = it
 	current = best
+
+func apply_damage(damage: int) -> void:
+	health -= damage
+	health_changed.emit(health)
+
+func set_health(new_health: int) -> void:
+	health = new_health
+	health_changed.emit(health)
+
+func _on_interact_area_area_entered(area: Area2D) -> void:
+	if area is Interactable:
+		nearby.append(area)
+		_pick_best()
+
+
+func _on_interact_area_area_exited(area: Area2D) -> void:
+	if area is Interactable:
+		nearby.erase(area)
+		_pick_best()

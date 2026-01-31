@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1kniqq8c6uhd"]
+
+[ext_resource type="Script" uid="uid://dv80r8rtd1g3u" path="res://scripts/World.gd" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://dhx73mwoam3fo" path="res://Player.tscn" id="2_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://bjl6mvl7f5371" path="res://scenes/gui/hud.tscn" id="3_js7pq"]
+[ext_resource type="Script" uid="uid://bsfke3sg3dw5b" path="res://world_data.gd" id="4_js7pq"]
+
+[node name="World" type="Node2D" unique_id=224669237]
+script = ExtResource("1_c6gwx")
+
+[node name="WorldData" type="Node" parent="." unique_id=1488024828]
+script = ExtResource("4_js7pq")
+
+[node name="HUD" parent="." unique_id=313621619 instance=ExtResource("3_js7pq")]
+unique_name_in_owner = true
+
+[node name="RoomContainer" type="Node2D" parent="." unique_id=1904827400]
+
+[node name="Player" parent="." unique_id=127319239 instance=ExtResource("2_bcbcq")]
+unique_name_in_owner = true
+position = Vector2(347, 346)
+
+[connection signal="health_changed" from="Player" to="WorldData" method="_on_player_health_changed"]

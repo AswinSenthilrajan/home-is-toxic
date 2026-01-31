@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://bjl6mvl7f5371"]
 
 [ext_resource type="Texture2D" uid="uid://6qpby02r6rn2" path="res://sprites/harts.png" id="1_86rft"]
+[ext_resource type="Script" uid="uid://dds8a2nxqi7on" path="res://scripts/hud.gd" id="1_ahhtf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_624ws"]
 atlas = ExtResource("1_86rft")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
 
 [node name="HUD" type="CanvasLayer" unique_id=313621619]
+script = ExtResource("1_ahhtf")
+atlas = ExtResource("1_86rft")
 
 [node name="Root" type="Control" parent="." unique_id=1883271908]
 layout_mode = 3
@@ -22,7 +25,7 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="Root" unique_id=1402350380]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.25
 offset_left = 16.0
 offset_top = 16.0
 offset_right = -27.466675
@@ -91,17 +94,13 @@ texture = SubResource("AtlasTexture_624ws")
 expand_mode = 3
 stretch_mode = 3
 
-[node name="BombRow" type="HBoxContainer" parent="Root/MarginContainer/VBoxContainer" unique_id=1685624879]
+[node name="MarginContainer" type="MarginContainer" parent="Root/MarginContainer/VBoxContainer" unique_id=835718667]
 layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 20
 
-[node name="Label" type="Label" parent="Root/MarginContainer/VBoxContainer/BombRow" unique_id=91171720]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
-text = "Air Tank : "
-
-[node name="BombBar" type="ProgressBar" parent="Root/MarginContainer/VBoxContainer/BombRow" unique_id=746354939]
-custom_minimum_size = Vector2(300, 15)
+[node name="AirBar" type="ProgressBar" parent="Root/MarginContainer/VBoxContainer/MarginContainer" unique_id=654693601]
+custom_minimum_size = Vector2(50, 15)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
