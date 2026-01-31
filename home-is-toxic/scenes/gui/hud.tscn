@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bjl6mvl7f5371"]
+
+[ext_resource type="Texture2D" uid="uid://6qpby02r6rn2" path="res://sprites/harts.png" id="1_86rft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_624ws"]
+atlas = ExtResource("1_86rft")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
+
+[node name="HUD" type="CanvasLayer" unique_id=313621619]
+
+[node name="Root" type="Control" parent="." unique_id=1883271908]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Root" unique_id=1402350380]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -27.466675
+offset_bottom = 88.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/MarginContainer" unique_id=189227135]
+layout_mode = 2
+
+[node name="HealthRow" type="HBoxContainer" parent="Root/MarginContainer/VBoxContainer" unique_id=1387260737]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -14
+
+[node name="TextureRect" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=2110976594]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=2101469139]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=1109809808]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=287261605]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=1690791093]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=1655257179]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=858591411]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=1856084171]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="Root/MarginContainer/VBoxContainer/HealthRow" unique_id=1606915635]
+layout_mode = 2
+texture = SubResource("AtlasTexture_624ws")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="BombRow" type="HBoxContainer" parent="Root/MarginContainer/VBoxContainer" unique_id=1685624879]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/MarginContainer/VBoxContainer/BombRow" unique_id=91171720]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+text = "Air Tank : "
+
+[node name="BombBar" type="ProgressBar" parent="Root/MarginContainer/VBoxContainer/BombRow" unique_id=746354939]
+custom_minimum_size = Vector2(300, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_oo0fn")
+show_percentage = false
