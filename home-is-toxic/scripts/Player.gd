@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 120.0
 @export var sprint_multiplier = 5.0
 @export var health: int = 18
+@export var airTime: float = 10.0
+@onready var air_timer: Timer = $Air_Timer
 
 @onready var interact_area: Area2D = $InteractArea
 var nearby: Array[Interactable] = []
@@ -12,6 +14,13 @@ signal health_changed(new_health: int)
 
 func _ready() -> void:
 	health_changed.emit(health)
+	entered_gas()
+
+func entered_gas() -> void:
+	air_timer.start(airTime)
+
+func exited_gas() -> void:
+	air_timer.stop()
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
@@ -57,3 +66,7 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 	if area is Interactable:
 		nearby.erase(area)
 		_pick_best()
+
+
+func _on_air_timer_timeout() -> void:
+	print("air run out")

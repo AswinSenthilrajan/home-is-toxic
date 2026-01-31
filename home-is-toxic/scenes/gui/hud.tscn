@@ -100,6 +100,7 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 20
 
 [node name="AirBar" type="ProgressBar" parent="Root/MarginContainer/VBoxContainer/MarginContainer" unique_id=654693601]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 15)
 layout_mode = 2
 size_flags_horizontal = 3

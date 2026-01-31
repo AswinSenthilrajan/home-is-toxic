@@ -31,5 +31,8 @@ limit_top = -512
 limit_right = 768
 limit_bottom = 512
 
+[node name="Air_Timer" type="Timer" parent="." unique_id=1310256191]
+
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]
+[connection signal="timeout" from="Air_Timer" to="." method="_on_air_timer_timeout"]

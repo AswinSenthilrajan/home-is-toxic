@@ -12,11 +12,11 @@ size = Vector2(1536, 1024)
 [node name="World" type="Node2D" unique_id=224669237]
 script = ExtResource("1_c6gwx")
 
-[node name="WorldData" type="Node" parent="." unique_id=1488024828]
-script = ExtResource("4_js7pq")
-
 [node name="HUD" parent="." unique_id=313621619 instance=ExtResource("3_js7pq")]
 unique_name_in_owner = true
+
+[node name="WorldData" type="Node" parent="." unique_id=1488024828]
+script = ExtResource("4_js7pq")
 
 [node name="Player" parent="." unique_id=127319239 instance=ExtResource("2_bcbcq")]
 unique_name_in_owner = true

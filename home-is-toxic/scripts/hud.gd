@@ -2,8 +2,8 @@ extends CanvasLayer
 
 @export var atlas: Texture2D
 
-@onready var air_bar: ProgressBar = $Root/MarginContainer/VBoxContainer/MarginContainer/AirBar
 @onready var health_row: HBoxContainer = $Root/MarginContainer/VBoxContainer/HealthRow
+@onready var air_bar: ProgressBar = %AirBar
 
 const FULL  = Rect2i(0,   0, 32, 32)
 const HALF  = Rect2i(32,  0, 32, 32)
@@ -26,7 +26,8 @@ func update_air_bar(new_air: float) -> void:
 	air_bar.set_value_no_signal(new_air)
 
 func update_max_air(new_max: float) -> void:
-	air_bar["max_value"] = new_max
+	if air_bar:
+		air_bar["max_value"] = new_max
 	
 func set_health(current_health: int):
 	for i in range(_children.size()):
