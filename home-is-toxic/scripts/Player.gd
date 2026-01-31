@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var speed: float = 120.0
 @export var sprint_multiplier = 5.0
-@export var sprint_multiplier = 1.5
 @export var health: int = 18
 
 @onready var interact_area: Area2D = $InteractArea
