@@ -21,6 +21,8 @@ func entered_gas() -> void:
 
 func exited_gas() -> void:
 	air_timer.stop()
+	interact_area.area_entered.connect(_on_interact_area_area_entered)
+	interact_area.area_exited.connect(_on_interact_area_area_exited)
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
@@ -47,7 +49,6 @@ func _pick_best() -> void:
 			best_dist = d
 			best = it
 	current = best
-
 func apply_damage(damage: int) -> void:
 	health -= damage
 	health_changed.emit(health)
@@ -57,12 +58,14 @@ func set_health(new_health: int) -> void:
 	health_changed.emit(health)
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
+	print("entered area", area)
 	if area is Interactable:
 		nearby.append(area)
 		_pick_best()
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:
+	print("exited area", area)
 	if area is Interactable:
 		nearby.erase(area)
 		_pick_best()

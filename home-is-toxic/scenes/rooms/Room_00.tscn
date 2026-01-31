@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_bar6c"]
 [ext_resource type="Script" uid="uid://duyqwpge3y6o2" path="res://scripts/Room.gd" id="1_nmajr"]
+[ext_resource type="PackedScene" uid="uid://bq47p6a4lmtbs" path="res://scenes/PickupItem.tscn" id="3_w2xtu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrr2g"]
 texture = ExtResource("1_bar6c")
@@ -88,3 +89,8 @@ position = Vector2(757, 432)
 
 [node name="Spawn_Door" type="Marker2D" parent="Spawns" unique_id=175780080]
 position = Vector2(465, -15)
+
+[node name="PickupItem" parent="." unique_id=645996433 instance=ExtResource("3_w2xtu")]
+position = Vector2(988, 513)
+item_id = &"key_1"
+icon = ExtResource("1_bar6c")
