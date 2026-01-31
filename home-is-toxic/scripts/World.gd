@@ -7,7 +7,7 @@ var current_room: Node = null
 
 func _ready():
 	# load starting room
-	change_room(preload("res://rooms/Room_01.tscn"), "Spawn_Start")
+	change_room(preload("res://scenes/rooms/Room_01.tscn"), "Spawn_Start")
 
 func _find_spawn_marker(room: Node, spawn_name: StringName) -> Marker2D:
 	var s := room.get_node_or_null("Spawns/" + String(spawn_name))
