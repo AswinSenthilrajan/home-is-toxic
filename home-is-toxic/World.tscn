@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4heacvuvwsps"]
 
 [ext_resource type="Script" uid="uid://dv80r8rtd1g3u" path="res://scripts/World.gd" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://d07ynvr4gj2qa" path="res://Player.tscn" id="2_2dftf"]
 
 [node name="World" type="Node2D" unique_id=224669237]
 script = ExtResource("1_c6gwx")
@@ -8,3 +9,5 @@ script = ExtResource("1_c6gwx")
 [node name="RoomContainer" type="Node2D" parent="." unique_id=1904827400]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=90836677]
+
+[node name="Player" parent="." unique_id=127319239 instance=ExtResource("2_2dftf")]

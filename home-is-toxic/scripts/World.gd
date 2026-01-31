@@ -9,16 +9,21 @@ func _ready():
 	# load starting room
 	change_room(preload("res://rooms/Room_01.tscn"), "Spawn_Start")
 
-func change_room(next_room: PackedScene, entry_spawn_name: String):
-	# remove old
+func _find_spawn_marker(room: Node, spawn_name: StringName) -> Marker2D:
+	var s := room.get_node_or_null("Spawns/" + String(spawn_name))
+	if s is Marker2D:
+		return s
+	return null
+
+
+func change_room(next_room: PackedScene, entry_spawn_name: StringName) -> void:
 	if current_room:
 		current_room.queue_free()
 
 	current_room = next_room.instantiate()
 	room_container.add_child(current_room)
 
-	# place player at spawn
-	if entry_spawn_name != "":
-		var spawn = current_room.get_node_or_null(entry_spawn_name)
-		if spawn and spawn is Marker2D:
-			player.global_position = spawn.global_position
+	var spawn: Marker2D = _find_spawn_marker(current_room, entry_spawn_name)
+
+	if spawn:
+		player.global_position = spawn.global_position
