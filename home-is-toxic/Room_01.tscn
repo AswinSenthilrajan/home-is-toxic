@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://clos3odmkglbu"]
+
+[node name="Room" type="Node2D" unique_id=1589474830]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=757549469]
+
+[node name="Exits" type="Node2D" parent="." unique_id=1594603402]
