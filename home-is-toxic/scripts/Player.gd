@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 120.0
+@export var sprint_multiplier = 1.5
 
 @onready var interact_area: Area2D = $InteractArea
 var nearby: Array[Interactable] = []
@@ -12,7 +13,11 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
-	velocity = dir * speed
+
+	var current_speed := speed
+	if Input.is_action_pressed("sprint"):
+		current_speed *= sprint_multiplier
+	velocity = dir * current_speed
 	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:

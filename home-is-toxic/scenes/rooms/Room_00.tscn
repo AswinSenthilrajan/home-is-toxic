@@ -1,10 +1,10 @@
-[gd_scene format=4 uid="uid://clos3odmkglbu"]
+[gd_scene format=4 uid="uid://vs5dj554u88h"]
 
-[ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_ugvc2"]
-[ext_resource type="PackedScene" uid="uid://ctb10eklr4oj7" path="res://scenes/Exit.tscn" id="2_raggc"]
+[ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_bar6c"]
+[ext_resource type="PackedScene" uid="uid://ctb10eklr4oj7" path="res://scenes/Exit.tscn" id="2_u7j1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrr2g"]
-texture = ExtResource("1_ugvc2")
+texture = ExtResource("1_bar6c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -81,7 +81,7 @@ tile_set = SubResource("TileSet_7t8o3")
 
 [node name="Exits" type="Node2D" parent="." unique_id=1594603402]
 
-[node name="Exit_Door" parent="Exits" unique_id=582914849 instance=ExtResource("2_raggc")]
+[node name="Exit_Door" parent="Exits" unique_id=582914849 instance=ExtResource("2_u7j1f")]
 position = Vector2(-45, 30)
 
 [node name="Spawns" type="Node2D" parent="." unique_id=910552267]
