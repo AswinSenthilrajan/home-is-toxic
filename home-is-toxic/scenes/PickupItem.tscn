@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://4j0fu4qkmm3q" path="res://scripts/PickupItem.gd" id="1_ltixv"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffuom"]
+
 [node name="PickupItem" type="Area2D" unique_id=645996433]
 script = ExtResource("1_ltixv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=244066740]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020282410]
+shape = SubResource("CircleShape2D_ffuom")
