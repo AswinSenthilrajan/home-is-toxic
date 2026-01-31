@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_bar6c"]
 [ext_resource type="Script" uid="uid://duyqwpge3y6o2" path="res://scripts/Room.gd" id="1_nmajr"]
+[ext_resource type="Script" uid="uid://b8kfihcjc3hrf" path="res://scripts/Exit.gd" id="3_w2xtu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrr2g"]
 texture = ExtResource("1_bar6c")
@@ -73,6 +74,9 @@ texture = ExtResource("1_bar6c")
 [sub_resource type="TileSet" id="TileSet_7t8o3"]
 sources/1 = SubResource("TileSetAtlasSource_qrr2g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmajr"]
+size = Vector2(540.8125, 382.5)
+
 [node name="Room" type="Node2D" unique_id=1589474830]
 script = ExtResource("1_nmajr")
 
@@ -88,3 +92,14 @@ position = Vector2(757, 432)
 
 [node name="Spawn_Door" type="Marker2D" parent="Spawns" unique_id=175780080]
 position = Vector2(465, -15)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=84247774]
+script = ExtResource("3_w2xtu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1118188583]
+position = Vector2(12, 48)
+shape = SubResource("RectangleShape2D_nmajr")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="player_exited" from="Area2D" to="." method="_on_area_2d_player_exited"]

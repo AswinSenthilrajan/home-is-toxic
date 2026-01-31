@@ -25,6 +25,11 @@ shape = SubResource("CapsuleShape2D_4flbx")
 shape = SubResource("CircleShape2D_kpjcp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1548173975]
+zoom = Vector2(2, 2)
+limit_left = -768
+limit_top = -512
+limit_right = 768
+limit_bottom = 512
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]

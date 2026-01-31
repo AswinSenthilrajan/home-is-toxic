@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b8kfihcjc3hrf" path="res://scripts/Exit.gd" id="5_eu7l1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1v5b"]
-size = Vector2(1536, 1024)
+size = Vector2(540.8125, 382.5)
 
 [node name="World" type="Node2D" unique_id=224669237]
 script = ExtResource("1_c6gwx")
@@ -29,6 +29,7 @@ unique_name_in_owner = true
 script = ExtResource("5_eu7l1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds" unique_id=979309899]
+position = Vector2(12, 48)
 shape = SubResource("RectangleShape2D_p1v5b")
 
 [connection signal="health_changed" from="Player" to="WorldData" method="_on_player_health_changed"]

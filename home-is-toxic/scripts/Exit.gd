@@ -1,14 +1,19 @@
 extends Area2D
 
-@export var target_room: PackedScene
-@export var entry_spawn_name: String = ""
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-func _ready():
-	body_entered.connect(_on_body_entered)
+signal player_exited(body: Area2D, side: int)
 
-func _on_body_entered(body):
+func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		# Get world and change room
-		var world = get_tree().get_first_node_in_group("world")
-		if world:
-			world.change_room(target_room, entry_spawn_name)
+		var rect = collision_shape.shape
+		var ext = rect.extents
+		var local := to_local(body.global_position)
+		if local.x < -ext.x:
+			player_exited.emit(body,0)
+		elif local.x > ext.x:
+			player_exited.emit(body,2)
+		elif local.y < -ext.y:
+			player_exited.emit(body,1)
+		elif local.y > ext.y:
+			player_exited.emit(body,3)
