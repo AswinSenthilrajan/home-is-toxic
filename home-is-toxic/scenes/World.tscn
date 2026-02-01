@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjl6mvl7f5371" path="res://scenes/gui/hud.tscn" id="3_7g83o"]
 [ext_resource type="Script" uid="uid://b8kfihcjc3hrf" path="res://scripts/world_bounds.gd" id="4_d1c63"]
 [ext_resource type="Script" uid="uid://bydboi10rbjib" path="res://scenes/map.gd" id="5_1lgw5"]
-[ext_resource type="PackedScene" uid="uid://uf1npe0xbg6r" path="res://scenes/rooms/Room_House.tscn" id="6_c0d7e"]
+[ext_resource type="PackedScene" uid="uid://dm7wlsydxwjps" path="res://scenes/rooms/overworld/Center/RoomCenter.tscn" id="6_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://qik0v6rgi08v" path="res://scenes/rooms/overworld/Ring1/0/Room1,0.tscn" id="7_i4b1j"]
 [ext_resource type="PackedScene" uid="uid://bucy20arnfwsd" path="res://scenes/rooms/overworld/Ring1/1/Room1,1.tscn" id="8_c0d7e"]
 [ext_resource type="PackedScene" uid="uid://dwsn8bcf0ak0g" path="res://scenes/rooms/overworld/Ring1/2/Room1,2.tscn" id="9_o1tcx"]

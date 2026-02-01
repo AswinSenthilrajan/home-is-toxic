@@ -124,7 +124,7 @@ sources/3 = SubResource("TileSetAtlasSource_51gqb")
 
 [node name="Door" parent="." unique_id=1473886192 node_paths=PackedStringArray("door_spawm") instance=ExtResource("1_f4cjf")]
 position = Vector2(-7, -51)
-connected_scene_path = "uid://c8rys3p1fcala"
+connected_scene_path = "uid://dm7wlsydxwjps"
 door_spawm = NodePath("../house_exit")
 
 [node name="house_exit" type="Node2D" parent="." unique_id=1161181456]

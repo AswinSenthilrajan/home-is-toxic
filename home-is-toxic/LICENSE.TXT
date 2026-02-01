@@ -1,0 +1,22 @@
+Content License Summary: Pixabay Assets
+This document identifies the licensing terms for third-party assets included in this Global Game Jam submission, specifically those sourced from Pixabay.
+1. Source and Attribution
+The audio/visual assets used in this project were sourced from Pixabay, a community of creators sharing royalty-free media. While attribution is not legally required under this license, we acknowledge the original authors for their contributions to the "Content."
+2. Permitted Uses
+In accordance with the Pixabay Content License, we are authorized to:
+Use Content for free: All sourced media is utilized without cost.
+Modification: Content has been modified or adapted (e.g., through Audacity processing or Godot implementation) into new works for this game.
+No Attribution Required: Use of the content does not require a manual credit to the author, though appreciation is noted.
+3. Prohibited Uses (Standalone Restrictions)
+This license does not grant the right to:
+Standalone Distribution: The content may not be sold or distributed in digital or physical form where no creative effort has been applied (it must be part of the game or a modified work).
+Trademarks and Logos: Content containing recognizable trademarks cannot be used for commercial merchandise.
+Immoral/Illegal Use: Content featuring recognizable people cannot be used in immoral, misleading, or deceptive ways.
+Brand Identity: None of the content is used as part of a trademark, business name, or service mark for this GGJ project.
+4. GGJ Compliance Note
+As per the Global Game Jam Content Policy:
+The creators of this game do not purport to grant more rights than they have regarding these third-party Pixabay elements.
+The original creators of the Pixabay content retain any applicable proprietary or moral rights as defined by the full Pixabay License.
+Global Game Jam Inc. is granted the perpetual right to host the game submission containing these assets on the GGJ platform.
+Full License Reference: For the legally binding version of these terms, please visit: https://pixabay.com/service/license-summary/
+ 

@@ -196,6 +196,7 @@ shape = SubResource("CircleShape2D_kpjcp")
 [node name="Air_Timer" type="Timer" parent="." unique_id=182913765]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1959992123]
+zoom = Vector2(3, 3)
 limit_left = -768
 limit_top = -512
 limit_right = 768

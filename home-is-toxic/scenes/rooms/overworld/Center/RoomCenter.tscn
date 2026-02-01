@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://dm7wlsydxwjps"]
 
-[ext_resource type="Texture2D" uid="uid://dcetrnjeus4ja" path="res://sprites/cant_breath_floor.PNG" id="1_dgqv1"]
+[ext_resource type="Texture2D" uid="uid://dcetrnjeus4ja" path="res://sprites/cant_breath_floor.png" id="1_dgqv1"]
 [ext_resource type="Texture2D" uid="uid://b646bs3adqgtv" path="res://sprites/can_breath.PNG" id="2_n2bhi"]
 [ext_resource type="Texture2D" uid="uid://bpy3twv32wk66" path="res://sprites/black.PNG" id="3_dru0c"]
 [ext_resource type="PackedScene" uid="uid://d0gjksfyli56q" path="res://scenes/Gas/Gas_Border.tscn" id="4_l8h0p"]
 [ext_resource type="Texture2D" uid="uid://dbp52r1anfcst" path="res://sprites/gas_fog_overlay.PNG" id="5_kerod"]
+[ext_resource type="PackedScene" uid="uid://eqeiqmqsd7f0" path="res://scenes/Door.tscn" id="6_dru0c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_urs3e"]
 load_path = "res://.godot/imported/landscape.png-51cbc27ed3df814bd0752ab1facfef89.ctex"
@@ -166,3 +167,11 @@ modulate = Color(1, 1, 1, 0.6901961)
 self_modulate = Color(1, 1, 1, 0.6901961)
 z_index = 3
 texture = ExtResource("5_kerod")
+
+[node name="Door" parent="." unique_id=1473886192 node_paths=PackedStringArray("door_spawm") instance=ExtResource("6_dru0c")]
+position = Vector2(8, 38)
+connected_scene_path = "uid://uf1npe0xbg6r"
+door_spawm = NodePath("../EXIT")
+
+[node name="EXIT" type="Node2D" parent="." unique_id=1764194060]
+position = Vector2(7, 88)
