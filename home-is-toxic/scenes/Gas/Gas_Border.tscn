@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d0gjksfyli56q"]
+
+[ext_resource type="Script" uid="uid://cl4o7k43ljyf0" path="res://scripts/gas_border.gd" id="1_pki4i"]
+[ext_resource type="PackedScene" uid="uid://j6cdkfcknmyu" path="res://scenes/Gas/HGas.tscn" id="2_5u1u3"]
+[ext_resource type="PackedScene" uid="uid://edm80xra2rs2" path="res://scenes/Gas/VGas.tscn" id="3_fjbx2"]
+[ext_resource type="Texture2D" uid="uid://b4u40fyy7bi3p" path="res://sprites/gas.PNG" id="4_5u1u3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u1u3"]
+atlas = ExtResource("4_5u1u3")
+region = Rect2(143.20001, 122.4, 64.79999, 35.200005)
+
+[node name="GasBorder" type="Node2D" unique_id=409125072]
+script = ExtResource("1_pki4i")
+
+[node name="Gas_Bottom" parent="." unique_id=476684596 instance=ExtResource("2_5u1u3")]
+position = Vector2(0, 512)
+
+[node name="Gas_right" parent="." unique_id=1267646649 instance=ExtResource("3_fjbx2")]
+position = Vector2(768, 0)
+
+[node name="Gas_Top" parent="." unique_id=1462218001 instance=ExtResource("2_5u1u3")]
+position = Vector2(0, -512)
+
+[node name="Gas_left" parent="." unique_id=1156199135 instance=ExtResource("3_fjbx2")]
+position = Vector2(-768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=524165223]
+position = Vector2(527, -158)
+scale = Vector2(4.2148433, 3.3554688)
+texture = ExtResource("4_5u1u3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=772770611]
+position = Vector2(-472, 153)
+rotation = 3.1415927
+scale = Vector2(4.2148433, 3.3554688)
+texture = ExtResource("4_5u1u3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=675915843]
+position = Vector2(495.00003, 125)
+rotation = 3.1415927
+scale = Vector2(4.2148433, 3.7575805)
+texture = ExtResource("4_5u1u3")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=505319138]
+position = Vector2(-502, -176)
+scale = Vector2(4.2148433, 3.3554688)
+texture = ExtResource("4_5u1u3")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1572043257]
+position = Vector2(-83, -525)
+scale = Vector2(4.2148433, 3.3554688)
+texture = SubResource("AtlasTexture_5u1u3")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=213749383]
+position = Vector2(90, -512)
+scale = Vector2(4.2148433, 3.3554688)
+texture = SubResource("AtlasTexture_5u1u3")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=94692163]
+position = Vector2(-68.01759, 524.53125)
+scale = Vector2(4.2148433, 3.3554688)
+texture = SubResource("AtlasTexture_5u1u3")
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1470834548]
+position = Vector2(104.98241, 537.53125)
+scale = Vector2(4.2148433, 3.3554688)
+texture = SubResource("AtlasTexture_5u1u3")
+flip_v = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=137945624]
+position = Vector2(700, -23)
+scale = Vector2(4.2148433, 3.3554688)
+texture = SubResource("AtlasTexture_5u1u3")
+
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=399598553]
+position = Vector2(-724, -16.000002)
+scale = Vector2(4.2148433, 4.0777345)
+texture = SubResource("AtlasTexture_5u1u3")
+flip_h = true

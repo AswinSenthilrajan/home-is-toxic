@@ -7,6 +7,7 @@ class_name Player
 @export var airTime: float = 10.0
 @export var no_air_damage_tick_time: float = 1.0
 @export var inventory_size: int = 3
+@export var gas_mask_level: int = 1
 @onready var air_timer: Timer = $Air_Timer
 @onready var no_air_tick: Timer = $No_Air_Tick
 @onready var interact_area: Area2D = $InteractArea
@@ -126,6 +127,8 @@ func update_max_air(add_max: float) -> void:
 	airTime += add_max
 	max_air_changed.emit(airTime)
 
+func increase_mask_level(new_level:int) -> void:
+	gas_mask_level = new_level
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
 	print("entered area", area)

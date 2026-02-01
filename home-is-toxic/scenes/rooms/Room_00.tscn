@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2flx8450jytu" path="res://scenes/pickup_items/Air_Item.tscn" id="4_mmln8"]
 [ext_resource type="PackedScene" uid="uid://cdn84md8a204j" path="res://scenes/pickup_items/Heal_Item.tscn" id="5_qk7ji"]
 [ext_resource type="PackedScene" uid="uid://ch4uursd85jsp" path="res://scenes/pickup_items/Mask_Upgrade.tscn" id="6_y6r02"]
+[ext_resource type="PackedScene" uid="uid://d0gjksfyli56q" path="res://scenes/Gas/Gas_Border.tscn" id="7_qk7ji"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrr2g"]
 texture = ExtResource("1_bar6c")
@@ -106,3 +107,6 @@ position = Vector2(283, -82)
 
 [node name="Mask_Upgrade" parent="." unique_id=945207929 instance=ExtResource("6_y6r02")]
 position = Vector2(549, -86)
+
+[node name="GasBorder" parent="." unique_id=409125072 instance=ExtResource("7_qk7ji")]
+gas_level_left = 2
