@@ -5,6 +5,8 @@ class_name World
 @onready var player: Player = $Player
 @onready var hud: Hud = $HUD
 @onready var map: MapRooms = $Map
+@onready var outsie_music: AudioStreamPlayer = $Outsie_Music
+@onready var inside_music: AudioStreamPlayer = $Inside_music
 
 var current_packedScene: PackedScene = null
 var current_scene: Node2D = null
@@ -32,8 +34,14 @@ func _process(delta: float) -> void:
 	var door: Door = get_tree().get_first_node_in_group("door")
 	remaining_airTime = player.air_timer.time_left
 	hud.update_air_bar(remaining_airTime)
-	if door:
+	if door and not door.entered_door.is_connected(enter_house):
 		door.entered_door.connect(enter_house)
+	if inside and not inside_music.playing:
+		outsie_music.stop()
+		inside_music.play()
+	elif not inside and not outsie_music.playing:
+		inside_music.stop()
+		outsie_music.play()
 
 func _find_spawn_marker(room: Node, spawn_name: StringName) -> Marker2D:
 	var s := room.get_node_or_null("Spawns/" + String(spawn_name))
