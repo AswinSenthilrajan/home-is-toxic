@@ -28,7 +28,7 @@ func _ready():
 	hud.update_max_air(player.airTime)
 	player.reset_health()
 	# load starting room
-	_change_room(map.center, Vector2(0,0))
+	_change_room(map.center, Vector2(0,100))
 
 func _process(delta: float) -> void:
 	var door: Door = get_tree().get_first_node_in_group("door")
