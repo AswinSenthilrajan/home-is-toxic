@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://wjbhfu3655op"]
+
+[ext_resource type="Script" uid="uid://3e0h1fqpwl8j" path="res://scripts/game_over.gd" id="1_y41w2"]
+
+[sub_resource type="SystemFont" id="SystemFont_negdo"]
+font_names = PackedStringArray("Z003")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bkxu"]
+font = SubResource("SystemFont_negdo")
+font_size = 64
+font_color = Color(0.18813542, 0.5360368, 0, 1)
+
+[node name="GameOver" type="Control" unique_id=1468190158]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y41w2")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1875886124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -67.5
+offset_right = 161.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CenterContainer" unique_id=796483527]
+layout_mode = 2
+color = Color(0.88518214, 0.00083728257, 0.9185579, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1216135480]
+layout_mode = 2
+alignment = 1
+
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1051024401]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_6bkxu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=601036056]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons" unique_id=696651767]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons" unique_id=1980425636]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -8,11 +8,12 @@ extends Node2D
 var current_packedScene: PackedScene = null
 var current_scene: Node2D = null
 var remaining_airTime: float
+const GAME_OVER_UI := preload("res://scenes/gui/GameOver.tscn")
+var game_over: Control
 
 func _ready():
 	hud.update_max_air(player.airTime)
 	player.reset_health()
-	player.apply_damage(3)
 	# load starting room
 	_change_room(map.center, Vector2(0,0))
 
@@ -58,3 +59,9 @@ func _on_world_bounds_player_exited(body: CharacterBody2D, side: int) -> void:
 func _on_player_health_changed(new_health: float) -> void:
 		if hud:
 			hud.set_health(new_health)
+
+
+func _on_player_died() -> void:
+	get_tree().paused = true
+	game_over = GAME_OVER_UI.instantiate()
+	add_child(game_over) # or add to a CanvasLayer if you have one

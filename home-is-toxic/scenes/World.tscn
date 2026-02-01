@@ -41,5 +41,7 @@ script = ExtResource("5_1lgw5")
 center = ExtResource("6_hlk0d")
 ring1 = Array[PackedScene]([ExtResource("7_i4b1j"), ExtResource("8_c0d7e"), ExtResource("9_o1tcx"), ExtResource("10_rpuxp"), ExtResource("11_nthub"), ExtResource("12_44lqw"), ExtResource("13_dwmkc"), ExtResource("14_30fn3")])
 
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="body_exited" from="WorldBounds" to="WorldBounds" method="_on_body_exited"]
 [connection signal="player_exited" from="WorldBounds" to="." method="_on_world_bounds_player_exited"]

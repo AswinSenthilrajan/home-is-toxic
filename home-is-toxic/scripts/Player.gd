@@ -12,6 +12,7 @@ var current: Interactable = null
 var health: float = max_health
 
 signal health_changed(new_health: int)
+signal died()
 
 func _ready() -> void:
 	health_changed.emit(health)
@@ -53,10 +54,14 @@ func _pick_best() -> void:
 	
 func apply_damage(damage: int) -> void:
 	health -= damage
+	if health==0:
+		died.emit()
 	health_changed.emit(health)
 
 func set_health(new_health: int) -> void:
 	health = new_health
+	if health==0:
+		died.emit()
 	health_changed.emit(health)
 	
 func reset_health() -> void:
