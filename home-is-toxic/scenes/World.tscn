@@ -6,6 +6,14 @@
 [ext_resource type="Script" uid="uid://b8kfihcjc3hrf" path="res://scripts/world_bounds.gd" id="4_d1c63"]
 [ext_resource type="Script" uid="uid://bydboi10rbjib" path="res://scenes/map.gd" id="5_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://c8rys3p1fcala" path="res://scenes/rooms/Room_00.tscn" id="6_hlk0d"]
+[ext_resource type="PackedScene" uid="uid://qik0v6rgi08v" path="res://scenes/rooms/overworld/Ring1/0/Room1,0.tscn" id="7_i4b1j"]
+[ext_resource type="PackedScene" uid="uid://bucy20arnfwsd" path="res://scenes/rooms/overworld/Ring1/1/Room1,1.tscn" id="8_c0d7e"]
+[ext_resource type="PackedScene" uid="uid://dwsn8bcf0ak0g" path="res://scenes/rooms/overworld/Ring1/2/Room1,2.tscn" id="9_o1tcx"]
+[ext_resource type="PackedScene" uid="uid://dhajtxd23ov3q" path="res://scenes/rooms/overworld/Ring1/3/Room1,3.tscn" id="10_rpuxp"]
+[ext_resource type="PackedScene" uid="uid://sd13kuk102vl" path="res://scenes/rooms/overworld/Ring1/4/Room1,4.tscn" id="11_nthub"]
+[ext_resource type="PackedScene" uid="uid://dfhxjjxe18t3a" path="res://scenes/rooms/overworld/Ring1/5/Room1,5.tscn" id="12_44lqw"]
+[ext_resource type="PackedScene" uid="uid://qmeu3em6n2nc" path="res://scenes/rooms/overworld/Ring1/6/Room1,6.tscn" id="13_dwmkc"]
+[ext_resource type="PackedScene" uid="uid://dvlgb54j8a87e" path="res://scenes/rooms/overworld/Ring1/7/Room1,7.tscn" id="14_30fn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lgw5"]
 size = Vector2(1536, 1024)
@@ -31,7 +39,7 @@ zoom = Vector2(0.25, 0.25)
 [node name="Map" type="Node" parent="." unique_id=475516838]
 script = ExtResource("5_1lgw5")
 center = ExtResource("6_hlk0d")
-ring1 = Array[PackedScene]([ExtResource("6_hlk0d"), null, null, null, null, null, null, null])
+ring1 = Array[PackedScene]([ExtResource("7_i4b1j"), ExtResource("8_c0d7e"), ExtResource("9_o1tcx"), ExtResource("10_rpuxp"), ExtResource("11_nthub"), ExtResource("12_44lqw"), ExtResource("13_dwmkc"), ExtResource("14_30fn3")])
 
 [connection signal="body_exited" from="WorldBounds" to="WorldBounds" method="_on_body_exited"]
 [connection signal="player_exited" from="WorldBounds" to="." method="_on_world_bounds_player_exited"]

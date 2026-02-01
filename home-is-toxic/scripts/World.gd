@@ -6,7 +6,7 @@ extends Node2D
 @onready var map: MapRooms = $Map
 
 var current_packedScene: PackedScene = null
-var current_scene: Room = null
+var current_scene: Node2D = null
 var remaining_airTime: float
 
 func _ready():
