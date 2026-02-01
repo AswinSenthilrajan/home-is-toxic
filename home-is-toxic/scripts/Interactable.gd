@@ -3,5 +3,5 @@ class_name Interactable
 
 @export var prompt_text: String = "Interact"
 
-func interact(_player: Node) -> void:
+func interact(_player: Player) -> void:
 	pass

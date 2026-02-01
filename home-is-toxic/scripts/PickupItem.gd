@@ -26,7 +26,6 @@ func _ready() -> void:
 	# shape.size = collision_size
 	# colshape.shape = shape
 
-
 func interact(_player: Node) -> void:
 	# Add to inventory (see section below)
 	var inv := get_tree().get_first_node_in_group("inventory")

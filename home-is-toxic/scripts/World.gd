@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var room_container: Node2D = $RoomContainer
 @onready var player: Node2D = $Player
-@onready var hud: CanvasLayer = $HUD
+@onready var hud: Hud = $HUD
 @onready var map: MapRooms = $Map
 
 var current_packedScene: PackedScene = null
@@ -10,6 +10,7 @@ var current_scene: Node2D = null
 var remaining_airTime: float
 const GAME_OVER_UI := preload("res://scenes/gui/GameOver.tscn")
 var game_over: Control
+
 
 func _ready():
 	hud.update_max_air(player.airTime)
@@ -65,3 +66,7 @@ func _on_player_died() -> void:
 	get_tree().paused = true
 	game_over = GAME_OVER_UI.instantiate()
 	add_child(game_over) # or add to a CanvasLayer if you have one
+
+
+func _on_player_max_air_changed(new_max: float) -> void:
+	hud.update_max_air(new_max)

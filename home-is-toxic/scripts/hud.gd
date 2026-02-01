@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name Hud
 
 @export var atlas: Texture2D
 

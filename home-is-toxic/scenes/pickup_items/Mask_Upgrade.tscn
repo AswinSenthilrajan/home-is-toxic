@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ch4uursd85jsp"]
+
+[ext_resource type="Script" uid="uid://b063a5eq6povq" path="res://scripts/mask_upgrade.gd" id="1_er5s7"]
+[ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="2_bbpwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyv8"]
+size = Vector2(124.5, 125)
+
+[node name="Mask_Upgrade" type="Area2D" unique_id=1213170033]
+script = ExtResource("1_er5s7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2056590255]
+texture = ExtResource("2_bbpwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1700740873]
+position = Vector2(-0.25, -0.5)
+shape = SubResource("RectangleShape2D_gcyv8")

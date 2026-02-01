@@ -43,5 +43,6 @@ ring1 = Array[PackedScene]([ExtResource("7_i4b1j"), ExtResource("8_c0d7e"), ExtR
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
+[connection signal="max_air_changed" from="Player" to="." method="_on_player_max_air_changed"]
 [connection signal="body_exited" from="WorldBounds" to="WorldBounds" method="_on_body_exited"]
 [connection signal="player_exited" from="WorldBounds" to="." method="_on_world_bounds_player_exited"]

@@ -31,3 +31,10 @@ limit_left = -768
 limit_top = -512
 limit_right = 768
 limit_bottom = 512
+
+[node name="No_Air_Tick" type="Timer" parent="." unique_id=700120666]
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]
+[connection signal="timeout" from="Air_Timer" to="." method="_on_air_timer_timeout"]
+[connection signal="timeout" from="No_Air_Tick" to="." method="_on_no_air_tick_timeout"]
