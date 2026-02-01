@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qmeu3em6n2nc" path="res://scenes/rooms/overworld/Ring1/6/Room1,6.tscn" id="13_dwmkc"]
 [ext_resource type="PackedScene" uid="uid://dvlgb54j8a87e" path="res://scenes/rooms/overworld/Ring1/7/Room1,7.tscn" id="14_30fn3"]
 [ext_resource type="AudioStream" uid="uid://i6ehvlxvngqd" path="res://audio/2026_01_outdoor_music.mp3" id="15_c0d7e"]
+[ext_resource type="AudioStream" uid="uid://bj0thoo4oosx0" path="res://audio/2026_01_indoor_music.mp3" id="16_o1tcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lgw5"]
 size = Vector2(1536, 1024)
@@ -42,10 +43,15 @@ script = ExtResource("5_1lgw5")
 center = ExtResource("6_c0d7e")
 ring1 = Array[PackedScene]([ExtResource("7_i4b1j"), ExtResource("8_c0d7e"), ExtResource("9_o1tcx"), ExtResource("10_rpuxp"), ExtResource("11_nthub"), ExtResource("12_44lqw"), ExtResource("13_dwmkc"), ExtResource("14_30fn3")])
 
-[node name="Background_Player" type="AudioStreamPlayer" parent="." unique_id=210346925]
+[node name="Outsie_Music" type="AudioStreamPlayer" parent="." unique_id=210346925]
 stream = ExtResource("15_c0d7e")
 volume_db = 8.0
 autoplay = true
+parameters/looping = true
+
+[node name="Inside_music" type="AudioStreamPlayer" parent="." unique_id=381507971]
+stream = ExtResource("16_o1tcx")
+volume_db = 0.005
 parameters/looping = true
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]

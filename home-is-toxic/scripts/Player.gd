@@ -39,10 +39,12 @@ func _ready() -> void:
 
 func entered_gas() -> void:
 	air_timer.start(airTime)
+	mask_breath_player.play()
 
 func exited_gas() -> void:
 	mask_breath_player.stop()
 	air_timer.stop()
+	no_air_tick.stop()
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
@@ -124,6 +126,12 @@ func apply_damage(damage: int) -> void:
 	if health==0:
 		died.emit()
 	health_changed.emit(health)
+	
+func apply_damage_air(damage: int) -> void:
+	health -= damage
+	if health==0:
+		died.emit()
+	health_changed.emit(health)
 
 func set_health(new_health: int) -> void:
 	health = new_health
@@ -166,22 +174,17 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 		_pick_best()
 
 
-func _on_air_timer_timeout() -> void:
-	if not mask_breath_player.playing:
-		mask_breath_player.play()
-	print("air run out")
-	no_air_tick.start(no_air_damage_tick_time)
-	air_timer.stop()
-
-
 func _on_no_air_tick_timeout() -> void:
 	if not air_timer.time_left > 0:
 		apply_damage(1)
 		no_air_tick.start(no_air_damage_tick_time)
+		if mask_breath_player.playing:
+			mask_breath_player.stop()
 	elif not health > 0:
 		died.emit()
 	else:
-		mask_breath_player.stop()
+		mask_breath_player.play()
+		
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:
 	if(_body is HazardTileMap):
@@ -192,3 +195,8 @@ func _on_hit_box_body_exited(_body: Node2D) -> void:
 	if(_body is HazardTileMap):
 		var tilemap = _body as HazardTileMap
 		tilemap.on_player_exited(self)
+
+
+func _on_air_timer_timeout() -> void:
+	no_air_tick.start(no_air_damage_tick_time)
+	air_timer.stop()
