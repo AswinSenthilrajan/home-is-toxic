@@ -221,7 +221,14 @@ parameters/looping = true
 stream = SubResource("AudioStreamRandomizer_d3wef")
 volume_db = 1.0
 
+[node name="HitBox" type="Area2D" parent="." unique_id=1137060742]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1155710026]
+shape = SubResource("CapsuleShape2D_4flbx")
+
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]
 [connection signal="timeout" from="Air_Timer" to="." method="_on_air_timer_timeout"]
 [connection signal="timeout" from="No_Air_Tick" to="." method="_on_no_air_tick_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

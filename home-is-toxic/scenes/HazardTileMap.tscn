@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bseexygsqsv8p"]
+
+[ext_resource type="Script" uid="uid://c3x0uosqq0u32" path="res://scripts/HazardTileMap.gd" id="1_2yrbi"]
+[ext_resource type="Texture2D" uid="uid://dcetrnjeus4ja" path="res://sprites/cant_breath_floor.png" id="1_d631u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u5uj"]
+texture = ExtResource("1_d631u")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-32, -32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(9.9014435, 3.6801834, 1.4895935, 20.503891, 5.520279, 31.018707, 6.2212677, 40.657288, 1.4895935, 48.36815, 8.499466, 58.181976, 27.250885, 49.770126, 32.5083, 56.78, 28.652863, 65.01662, 39.868668, 68.521545, 52.135956, 63.965134, 56.16664, 55.20279, 52.836945, 44.863213, 54.93991, 34.69889, 63.702255, 30.84346, 60.8983, 9.63858, 52.311203, 2.1029663, 34.260773, -0.35049438, 23.395462, 6.4841385)
+3:3/size_in_atlas = Vector2i(2, 3)
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(-16, -32)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 10.690063, 30.580582, 16.998955, 31.28157, 31.369202, 23.57071, 37.15235, 23.57071, 44.162224, 16.210342, 51.873093, 3.2420654, 49.244385, 0.43811035, 41.007782, 2.3658295, 30.492966, 9.550949, 26.111794, 6.922241, 19.627655, 14.4578705, 9.989075)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.9638672, -9.288086, 5.1697845, -2.2782059, 4.468796, 8.587097, -6.571762, 9.8138275, -5.695526, 3.5049362, -8.324234, -7.1851196)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.7984924, -7.1851196, -2.541092, 10.339569, 3.4173126, 10.865311, 8.84996, -7.8861084, -0.4381256, -0.17524719)
+5:2/size_in_atlas = Vector2i(2, 1)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(-16, 0)
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.015335, -7.1851196, 26.374664, -7.0098724, 31.456818, 1.7524719, 12.354904, 7.886116, 0.08761597, 1.4019775)
+3:1/size_in_atlas = Vector2i(2, 2)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(-16, -16)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.9430542, 5.257408, 10.427185, 6.3088913, 16, 1.4019775, 31.632065, 7.00988, 27.951874, 16.122719, 18.839035, 19.627655, 12.530151, 23.483086, 3.9430542, 16, 2.5410767, 5.082161)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.9222565, -7.1851196, -6.7470093, 1.5772247, 3.2420654, -2.453453)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.4272, -1.2267303, 2.015335, 9.288086, 9.726196, 1.5772247, -4.468796, -8.937592)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.9737396, -10.865311, -8.499481, 7.1851273, -0.26287842, 2.628708, 9.726196, 5.082161, 12.354904, -6.133644, 2.015335, -11.391052)
+7:0/size_in_atlas = Vector2i(2, 3)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(-16, -32)
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(7.447983, -25.936543, 16, -11.566299, 16, -1.0514832, 6.571747, 5.6079025, 1.1390991, 19.101913, -10.076706, 10.164322, -19.54004, -5.082161, -7.272751, -16)
+
+[sub_resource type="TileSet" id="TileSet_3so3s"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_6u5uj")
+
+[node name="HazardTileMap" type="TileMapLayer" unique_id=600681341]
+tile_set = SubResource("TileSet_3so3s")
+script = ExtResource("1_2yrbi")
