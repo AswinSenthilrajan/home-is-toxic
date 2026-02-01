@@ -2,7 +2,7 @@ extends Node2D
 class_name World
 
 @onready var room_container: Node2D = $RoomContainer
-@onready var player: Node2D = $Player
+@onready var player: Player = $Player
 @onready var hud: Hud = $HUD
 @onready var map: MapRooms = $Map
 
@@ -11,7 +11,15 @@ var current_scene: Node2D = null
 var remaining_airTime: float
 const GAME_OVER_UI := preload("res://scenes/gui/GameOver.tscn")
 var game_over: Control
+var inside = false
 
+func enter_house():
+	if inside:
+		inside = false
+		player.entered_gas()
+	else:
+		inside = true
+		player.exited_gas()
 
 func _ready():
 	add_to_group("world")
@@ -21,8 +29,11 @@ func _ready():
 	_change_room(map.center, Vector2(0,0))
 
 func _process(delta: float) -> void:
+	var door: Door = get_tree().get_first_node_in_group("door")
 	remaining_airTime = player.air_timer.time_left
 	hud.update_air_bar(remaining_airTime)
+	if door:
+		door.entered_door.connect(enter_house)
 
 func _find_spawn_marker(room: Node, spawn_name: StringName) -> Marker2D:
 	var s := room.get_node_or_null("Spawns/" + String(spawn_name))
