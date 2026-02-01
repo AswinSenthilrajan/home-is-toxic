@@ -5,6 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://dll4qpmx0c4o4" path="res://audio/walking-on-dirt.mp3" id="3_mdl7e"]
 [ext_resource type="AudioStream" uid="uid://c1erkl7qn60yk" path="res://audio/pickup-mask-3.mp3" id="4_qu4a1"]
 [ext_resource type="AudioStream" uid="uid://dukmk8q4133vp" path="res://audio/breathing-under-mask.mp3" id="5_70d11"]
+[ext_resource type="AudioStream" uid="uid://dxqmy45xjp7vn" path="res://audio/taking-damage-1.mp3" id="6_khinc"]
+[ext_resource type="AudioStream" uid="uid://clep4eiv7mhu7" path="res://audio/taking-damage-2.mp3" id="7_bruh7"]
+[ext_resource type="AudioStream" uid="uid://d30eg8h4yxjdw" path="res://audio/taking-damage-3.mp3" id="8_6eyey"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6fml"]
 atlas = ExtResource("3_3li8b")
@@ -167,6 +170,14 @@ height = 28.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
 radius = 22.36068
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d3wef"]
+random_pitch = 1.0594631
+random_volume_offset_db = 0.5
+streams_count = 3
+stream_0/stream = ExtResource("6_khinc")
+stream_1/stream = ExtResource("7_bruh7")
+stream_2/stream = ExtResource("8_6eyey")
+
 [node name="Player" type="CharacterBody2D" unique_id=127319239]
 script = ExtResource("1_kpjcp")
 
@@ -205,6 +216,10 @@ volume_db = 1.0
 stream = ExtResource("5_70d11")
 volume_db = 0.15
 parameters/looping = true
+
+[node name="Demage_Player" type="AudioStreamPlayer2D" parent="." unique_id=784519219]
+stream = SubResource("AudioStreamRandomizer_d3wef")
+volume_db = 1.0
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]

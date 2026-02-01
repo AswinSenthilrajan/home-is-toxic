@@ -16,6 +16,7 @@ class_name Player
 @onready var pick_up_player: AudioStreamPlayer2D = $PickUp_Player
 @onready var mask_breath_player: AudioStreamPlayer2D = $Mask_Breath_Player
 @onready var death_player: AudioStreamPlayer2D = $Death_Player
+@onready var demage_player: AudioStreamPlayer2D = $Demage_Player
 
 var nearby: Array[Interactable] = []
 var current: Interactable = null
@@ -115,6 +116,7 @@ func _pick_best() -> void:
 	current = best
 	
 func apply_damage(damage: int) -> void:
+	demage_player.play()
 	health -= damage
 	if health==0:
 		died.emit()
