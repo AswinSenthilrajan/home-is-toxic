@@ -15,10 +15,6 @@ run/main_scene="uid://3qtihsroajsv"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Intentory="*uid://d37d8o2w830xt"
-
 [dotnet]
 
 project/assembly_name="home-is-toxic"

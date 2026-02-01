@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d10ujivnwmhnr"]
+
+[node name="HotBar" type="Control" unique_id=1034061186]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Slots" type="HBoxContainer" parent="." unique_id=1250576446]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0

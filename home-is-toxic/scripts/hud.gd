@@ -5,6 +5,7 @@ class_name Hud
 
 @onready var health_row: HBoxContainer = $Root/MarginContainer/VBoxContainer/HealthRow
 @onready var air_bar: ProgressBar = %AirBar
+@onready var hot_bar: Control = $Root/HotBar
 
 const FULL  = Rect2i(0,   0, 32, 32)
 const HALF  = Rect2i(32,  0, 32, 32)
@@ -48,3 +49,14 @@ func set_health(current_health: int):
 			2: tex.region = FULL
 			1: tex.region = HALF
 			0: tex.region = EMPTY
+
+func add_item(item: Interactable):
+	var slot: HotbarSlot = HotbarSlot.new()
+	var tex: Texture2D = load("res://sprites/"+item.get_class())
+	slot.icon.texture = tex
+	hot_bar.add_child(slot)
+
+func remove_item(item: Interactable):
+	var slot: HotbarSlot = hot_bar.get_children().filter(func(el): return el is HotbarSlot).map(func(el): return el as HotbarSlot).filter(func(el): return el.item==item).get(1)
+	slot.remove_item()
+	

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bmq5n3uomnuk"]
+
+[ext_resource type="Script" uid="uid://jl0e4swc6i1g" path="res://scripts/HotbarSlot.gd" id="1_6bf8w"]
+[ext_resource type="Texture2D" uid="uid://hq3pdvofiq3g" path="res://sprites/gassy_border.PNG" id="2_6bf8w"]
+
+[node name="HotbarSlot" type="MarginContainer" unique_id=805948262]
+script = ExtResource("1_6bf8w")
+
+[node name="Border" type="TextureRect" parent="." unique_id=2111414117]
+layout_mode = 2
+texture = ExtResource("2_6bf8w")
+
+[node name="Icon" type="TextureRect" parent="Border" unique_id=1309323370]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

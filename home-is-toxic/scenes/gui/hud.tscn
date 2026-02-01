@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6qpby02r6rn2" path="res://sprites/harts.png" id="1_86rft"]
 [ext_resource type="Script" uid="uid://dds8a2nxqi7on" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://d10ujivnwmhnr" path="res://scenes/gui/HotBar.tscn" id="3_qxonp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_624ws"]
 atlas = ExtResource("1_86rft")
@@ -107,3 +108,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_oo0fn")
 show_percentage = false
+
+[node name="HotBar" parent="Root" unique_id=1034061186 instance=ExtResource("3_qxonp")]
+layout_mode = 1

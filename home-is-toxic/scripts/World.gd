@@ -93,3 +93,9 @@ func _on_player_died() -> void:
 
 func _on_player_max_air_changed(new_max: float) -> void:
 	hud.update_max_air(new_max)
+
+func _on_player_picked_up_item(item: Interactable) -> void:
+	hud.add_item(item)
+
+func _on_player_used_item(item: Interactable) -> void:
+	hud.remove_item(item)

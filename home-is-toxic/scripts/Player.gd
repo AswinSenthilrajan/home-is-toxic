@@ -30,6 +30,7 @@ signal health_changed(new_health: int)
 signal max_air_changed(new_max: float)
 signal died()
 signal picked_up_item(item: Interactable)
+signal used_item(item: Interactable)
 
 func _ready() -> void:
 	add_to_group("player")
@@ -102,6 +103,7 @@ func use_item(item: Interactable) -> void:
 	if item:
 		print(item)
 		item.use(self)
+		used_item.emit(item)
 
 func _pick_best() -> void:
 	# Choose closest interactable
