@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dcetrnjeus4ja" path="res://sprites/cant_breath_floor.PNG" id="1_cmuwf"]
 [ext_resource type="PackedScene" uid="uid://d0gjksfyli56q" path="res://scenes/Gas/Gas_Border.tscn" id="2_nmjdl"]
 [ext_resource type="Texture2D" uid="uid://dbp52r1anfcst" path="res://sprites/gas_fog_overlay.PNG" id="3_qvlc0"]
+[ext_resource type="PackedScene" path="res://scenes/HazardTileMap.tscn" id="4_qvlc0"]
+[ext_resource type="PackedScene" uid="uid://cdn84md8a204j" path="res://scenes/pickup_items/Heal_Item.tscn" id="5_33ogv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_urs3e"]
 load_path = "res://.godot/imported/landscape.png-51cbc27ed3df814bd0752ab1facfef89.ctex"
@@ -83,3 +85,15 @@ modulate = Color(1, 1, 1, 0.6901961)
 self_modulate = Color(1, 1, 1, 0.6901961)
 z_index = 3
 texture = ExtResource("3_qvlc0")
+
+[node name="HazardTileMap" parent="." unique_id=600681341 instance=ExtResource("4_qvlc0")]
+tile_map_data = PackedByteArray("AADx/wgAAAAFAAEAAAD1//r/AAAFAAEAAAAHAP3/AAAFAAEAAAAGAPz/AAAFAAEAAAALAAEAAAAFAAAAAAD8/wkAAAAFAAAAAAAEAAYAAAAFAAAAAAACAP3/AAAFAAAAAAD8/wUAAAADAAMAAAD7//z/AAADAAMAAGANAPj/AAADAAMAADDz/wIAAAADAAMAAFANAAkAAAADAAMAAAAJAAUAAAAHAAAAAGAAAAIAAAAHAAAAAGD4/wAAAAAHAAAAAGADAPv/AAAHAAAAAGD7//j/AAAHAAAAAGDz//j/AAAHAAAAAGDw////AAAHAAAAAGD2/wcAAAAHAAAAAGD8/wIAAAAHAAAAADACAAYAAAAHAAAAADAGAAQAAAAFAAMAAAAHAAEAAAAFAAMAAAAJAP//AAAFAAMAAAALAP3/AAAFAAMAAAAKAPn/AAAFAAMAAAAGAPj/AAAFAAMAAAAOAAQAAAAGAAMAAAAHAAgAAAAGAAMAAADz/woAAAAGAAMAAAD0/wYAAAAGAAMAAAD2/wEAAAAGAAMAAAD2//3/AAAGAAMAAAD5//n/AAAGAAMAAAA=")
+
+[node name="Heal_Item" parent="." unique_id=1213170033 instance=ExtResource("5_33ogv")]
+position = Vector2(-329, 294)
+
+[node name="Heal_Item2" parent="." unique_id=418567799 instance=ExtResource("5_33ogv")]
+position = Vector2(549, -130)
+
+[node name="Heal_Item3" parent="." unique_id=316497915 instance=ExtResource("5_33ogv")]
+position = Vector2(-244, -303)
