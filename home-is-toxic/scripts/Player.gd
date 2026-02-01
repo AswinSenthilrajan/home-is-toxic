@@ -12,9 +12,15 @@ class_name Player
 @onready var no_air_tick: Timer = $No_Air_Tick
 @onready var interact_area: Area2D = $InteractArea
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var walking_player: AudioStreamPlayer2D = $Walking_Player
+@onready var pick_up_player: AudioStreamPlayer2D = $PickUp_Player
+@onready var mask_breath_player: AudioStreamPlayer2D = $Mask_Breath_Player
+@onready var death_player: AudioStreamPlayer2D = $Death_Player
+
 var nearby: Array[Interactable] = []
 var current: Interactable = null
 var health: float = max_health
+var walking: = false
 
 var inventory: Array[Interactable] = []
 
@@ -32,21 +38,30 @@ func entered_gas() -> void:
 	air_timer.start(airTime)
 
 func exited_gas() -> void:
+	mask_breath_player.stop()
 	air_timer.stop()
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
 	var animation = "idle"
 	if(dir.x>0):
+		walking = true
 		animation = "walk_right"
 	elif(dir.x<0):
+		walking = true
 		animation = "walk_left"
 	elif(dir.y>0):
+		walking = true
 		animation = "walk_down"
 	elif(dir.y<0):
+		walking = true
 		animation = "walk_up"
 	if animated_sprite.animation != animation:
 		animated_sprite.play(animation)
+	if walking and not walking_player.playing:
+		walking_player.play()
+	elif animation == "idle" and walking_player.playing:
+		walking_player.stop()
 	velocity = dir * speed;
 	var animation_speed := 1.0
 	
@@ -63,6 +78,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if inventory.size() == inventory_size:
 				print("Inventory Full")
 			else:
+				pick_up_player.play()
 				picked_up_item.emit(current)
 				inventory.push_front(current)
 				current.get_parent().remove_child(current)
@@ -146,6 +162,8 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 
 
 func _on_air_timer_timeout() -> void:
+	if not mask_breath_player.playing:
+		mask_breath_player.play()
 	print("air run out")
 	no_air_tick.start(no_air_damage_tick_time)
 	air_timer.stop()
@@ -157,3 +175,5 @@ func _on_no_air_tick_timeout() -> void:
 		no_air_tick.start(no_air_damage_tick_time)
 	elif not health > 0:
 		died.emit()
+	else:
+		mask_breath_player.stop()

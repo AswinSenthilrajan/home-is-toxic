@@ -1,5 +1,10 @@
 extends Control
 
+@onready var death_player: AudioStreamPlayer = $Death_Player
+
+func  _ready() -> void:
+	death_player.play()
+
 func _on_quit() -> void:
 	get_tree().quit()
 

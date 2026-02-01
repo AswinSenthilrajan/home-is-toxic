@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://fymsm6hy4xvx" path="res://scripts/Player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bht4ibo0drqw" path="res://sprites/character_sheet.PNG" id="3_3li8b"]
+[ext_resource type="AudioStream" uid="uid://dll4qpmx0c4o4" path="res://audio/walking-on-dirt.mp3" id="3_mdl7e"]
+[ext_resource type="AudioStream" uid="uid://c1erkl7qn60yk" path="res://audio/pickup-mask-3.mp3" id="4_qu4a1"]
+[ext_resource type="AudioStream" uid="uid://dukmk8q4133vp" path="res://audio/breathing-under-mask.mp3" id="5_70d11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6fml"]
 atlas = ExtResource("3_3li8b")
@@ -158,6 +161,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
+radius = 14.0
 height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
@@ -187,6 +191,20 @@ limit_right = 768
 limit_bottom = 512
 
 [node name="No_Air_Tick" type="Timer" parent="." unique_id=700120666]
+
+[node name="Walking_Player" type="AudioStreamPlayer2D" parent="." unique_id=352180491]
+stream = ExtResource("3_mdl7e")
+volume_db = 0.8
+parameters/looping = true
+
+[node name="PickUp_Player" type="AudioStreamPlayer2D" parent="." unique_id=1828774017]
+stream = ExtResource("4_qu4a1")
+volume_db = 1.0
+
+[node name="Mask_Breath_Player" type="AudioStreamPlayer2D" parent="." unique_id=150001361]
+stream = ExtResource("5_70d11")
+volume_db = 0.15
+parameters/looping = true
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]

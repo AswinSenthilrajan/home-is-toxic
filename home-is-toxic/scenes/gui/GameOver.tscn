@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wjbhfu3655op"]
 
 [ext_resource type="Script" uid="uid://3e0h1fqpwl8j" path="res://scripts/game_over.gd" id="1_y41w2"]
+[ext_resource type="AudioStream" uid="uid://cfjy6fqc2o3cx" path="res://audio/dying.mp3" id="2_l4ern"]
 
 [sub_resource type="SystemFont" id="SystemFont_negdo"]
 font_names = PackedStringArray("Z003")
@@ -62,6 +63,10 @@ text = "Restart"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
+
+[node name="Death_Player" type="AudioStreamPlayer" parent="." unique_id=863827531]
+stream = ExtResource("2_l4ern")
+volume_db = 1.0
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
