@@ -52,11 +52,15 @@ func set_health(current_health: int):
 
 func add_item(item: Interactable):
 	var slot: HotbarSlot = HotbarSlot.new()
-	var tex: Texture2D = load("res://sprites/"+item.get_class()+".png")
-	slot.icon.texture = tex
+	print(item.icon)
+	slot.item = item
+	slot.icon = TextureRect.new()
+	slot.add_child(slot.icon)
+	slot.icon.texture = item.icon
 	hot_bar.add_child(slot)
 
 func remove_item(item: Interactable):
-	var slot: HotbarSlot = hot_bar.get_children().filter(func(el): return el is HotbarSlot).map(func(el): return el as HotbarSlot).filter(func(el): return el.item==item).get(1)
-	slot.remove_item()
+	var slot: HotbarSlot = hot_bar.get_children().filter(func(el): return el is HotbarSlot).map(func(el): return el as HotbarSlot).filter(func(el): return el.item==item).get(0)
+	if(slot):
+		hot_bar.remove_child(slot)
 	

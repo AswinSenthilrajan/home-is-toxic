@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2flx8450jytu"]
 
 [ext_resource type="Script" uid="uid://dm2bvq21wsro3" path="res://scripts/air_item.gd" id="1_jn63r"]
+[ext_resource type="Texture2D" uid="uid://qqqtl40u3rkv" path="res://sprites/mask_upgrade.PNG" id="2_gcyv8"]
 [ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="2_rxb7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyv8"]
@@ -8,6 +9,7 @@ size = Vector2(124.5, 125)
 
 [node name="Air_Item" type="Area2D" unique_id=1213170033]
 script = ExtResource("1_jn63r")
+icon = ExtResource("2_gcyv8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2056590255]
 texture = ExtResource("2_rxb7b")

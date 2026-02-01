@@ -111,3 +111,7 @@ show_percentage = false
 
 [node name="HotBar" parent="Root" unique_id=1034061186 instance=ExtResource("3_qxonp")]
 layout_mode = 1
+offset_left = -55.0
+offset_top = -57.0
+offset_right = 7.0
+offset_bottom = -23.0
