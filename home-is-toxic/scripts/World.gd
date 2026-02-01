@@ -1,4 +1,5 @@
 extends Node2D
+class_name World
 
 @onready var room_container: Node2D = $RoomContainer
 @onready var player: Node2D = $Player
@@ -13,6 +14,7 @@ var game_over: Control
 
 
 func _ready():
+	add_to_group("world")
 	hud.update_max_air(player.airTime)
 	player.reset_health()
 	# load starting room
@@ -27,6 +29,16 @@ func _find_spawn_marker(room: Node, spawn_name: StringName) -> Marker2D:
 	if s is Marker2D:
 		return s
 	return null
+
+func change_special_room(room: PackedScene)-> void:
+	if current_scene:
+		current_scene.queue_free()
+	current_packedScene = room
+	current_scene  = current_packedScene.instantiate()
+	room_container.add_child(current_scene)
+	await get_tree().process_frame
+	var door: Door = get_tree().get_first_node_in_group("door")
+	player.global_position = door.door_spawm.global_position
 
 
 func _change_room(next_room: PackedScene, player_position: Vector2) -> void:

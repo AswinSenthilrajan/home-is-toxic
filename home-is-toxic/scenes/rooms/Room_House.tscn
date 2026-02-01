@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://uf1npe0xbg6r"]
 
-[ext_resource type="Script" uid="uid://duyqwpge3y6o2" path="res://scripts/Room.gd" id="1_raggc"]
+[ext_resource type="PackedScene" uid="uid://eqeiqmqsd7f0" path="res://scenes/Door.tscn" id="1_f4cjf"]
 [ext_resource type="Texture2D" uid="uid://k0yrfcq4ftwy" path="res://icon.svg" id="1_ugvc2"]
 [ext_resource type="Texture2D" uid="uid://b646bs3adqgtv" path="res://sprites/can_breath.PNG" id="2_51gqb"]
 
@@ -120,8 +120,14 @@ texture = ExtResource("2_51gqb")
 sources/1 = SubResource("TileSetAtlasSource_raggc")
 sources/3 = SubResource("TileSetAtlasSource_51gqb")
 
-[node name="Room" type="Node2D" unique_id=1589474830]
-script = ExtResource("1_raggc")
+[node name="Room_House" type="Node2D" unique_id=1589474830]
+
+[node name="Door" parent="." unique_id=1473886192 node_paths=PackedStringArray("door_spawm") instance=ExtResource("1_f4cjf")]
+position = Vector2(-7, -51)
+connected_scene_path = "uid://c8rys3p1fcala"
+door_spawm = NodePath("../house_exit")
+
+[node name="house_exit" type="Node2D" parent="." unique_id=1161181456]
 
 [node name="TileMapLayer_Ground" type="TileMapLayer" parent="." unique_id=868798087]
 tile_map_data = PackedByteArray("AAD8//3/AwAIAAEAAAD8//7/AwAGAAEAAAD8////AwAIAAEAAAD8/wAAAwAIAAEAAAD8/wEAAwAHAAEAAAD8/wIAAwAKAAEAAAD9//3/AwAIAAEAAAD9//7/AwAJAAEAAAD9////AwAGAAEAAAD9/wAAAwAKAAEAAAD9/wEAAwAGAAEAAAD9/wIAAwAGAAEAAAD+//3/AwAGAAEAAAD+//7/AwAIAAEAAAD+////AwAGAAEAAAD+/wAAAwAGAAEAAAD+/wEAAwAGAAEAAAD+/wIAAwAIAAEAAAD///3/AwAMAAEAAAD///7/AwAIAAEAAAD/////AwAHAAEAAAD//wAAAwALAAEAAAD//wEAAwAIAAEAAAD//wIAAwAGAAEAAAAAAP3/AwAGAAEAAAAAAP7/AwAHAAEAAAAAAP//AwAGAAEAAAAAAAAAAwAHAAEAAAAAAAEAAwAGAAEAAAAAAAIAAwALAAEAAAABAP3/AwAHAAEAAAABAP7/AwAHAAEAAAABAP//AwAIAAEAAAABAAAAAwAMAAEAAAABAAEAAwAGAAEAAAABAAIAAwAIAAEAAAACAP3/AwAGAAEAAAACAP7/AwAGAAEAAAACAP//AwAHAAEAAAACAAAAAwAGAAEAAAACAAEAAwAIAAEAAAACAAIAAwAGAAEAAAADAP3/AwAJAAEAAAADAP7/AwAHAAEAAAADAP//AwAHAAEAAAADAAAAAwAGAAEAAAADAAEAAwAGAAEAAAADAAIAAwAIAAEAAAA=")
@@ -141,12 +147,3 @@ tile_set = SubResource("TileSet_mtqkf")
 z_index = 2
 tile_map_data = PackedByteArray("AAD9//z/AwAEAAIAAAD+//z/AwADAAIAAAD///z/AwAFAAIAAAAAAPz/AwAGAAIAAAABAPz/AwAHAAIAAAACAPz/AwAEAAIAAAD8//z/AwAGAAAAAAADAPz/AwAIAAAAAAD8//3/AwAKAAIAAAD8//7/AwAKAAIAAAD8////AwAKAAIAAAD8/wAAAwAKAAIAAAD8/wEAAwAKAAIAAAD8/wIAAwAEAAEAAAADAAIAAwAEAAEAAGD9/wIAAwAJAAMAAAD+/wIAAwAJAAMAAAD//wIAAwAJAAMAAAAAAAIAAwAJAAMAAAABAAIAAwAJAAMAAAACAAIAAwAJAAMAAAADAAEAAwAKAAQAAAADAAAAAwAKAAQAAAADAP//AwAKAAQAAAADAP7/AwAKAAQAAAADAP3/AwAKAAQAAAA=")
 tile_set = SubResource("TileSet_mtqkf")
-
-[node name="Spawns" type="Node2D" parent="." unique_id=910552267]
-position = Vector2(-14, 45)
-
-[node name="Spawn_Start" type="Marker2D" parent="Spawns" unique_id=2027727254]
-position = Vector2(14, -16)
-
-[node name="Spawn_Door" type="Marker2D" parent="Spawns" unique_id=175780080]
-position = Vector2(7, -87)
