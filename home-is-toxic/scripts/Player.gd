@@ -8,6 +8,7 @@ class_name Player
 @export var no_air_damage_tick_time: float = 1.0
 @export var inventory_size: int = 3
 @export var gas_mask_level: int = 1
+
 @onready var air_timer: Timer = $Air_Timer
 @onready var no_air_tick: Timer = $No_Air_Tick
 @onready var interact_area: Area2D = $InteractArea
@@ -179,3 +180,13 @@ func _on_no_air_tick_timeout() -> void:
 		died.emit()
 	else:
 		mask_breath_player.stop()
+
+func _on_hit_box_body_entered(_body: Node2D) -> void:
+	if(_body is HazardTileMap):
+		var tilemap = _body as HazardTileMap
+		tilemap.on_player_entered(self)
+
+func _on_hit_box_body_exited(_body: Node2D) -> void:
+	if(_body is HazardTileMap):
+		var tilemap = _body as HazardTileMap
+		tilemap.on_player_exited(self)
