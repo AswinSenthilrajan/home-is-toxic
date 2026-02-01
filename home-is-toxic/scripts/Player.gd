@@ -6,6 +6,7 @@ class_name Player
 @export var max_health: int = 18
 @export var airTime: float = 10.0
 @export var no_air_damage_tick_time: float = 1.0
+@export var inventory_size: int = 3
 @onready var air_timer: Timer = $Air_Timer
 @onready var no_air_tick: Timer = $No_Air_Tick
 @onready var interact_area: Area2D = $InteractArea
@@ -13,9 +14,12 @@ var nearby: Array[Interactable] = []
 var current: Interactable = null
 var health: float = max_health
 
+var inventory: Array[Interactable] = []
+
 signal health_changed(new_health: int)
 signal max_air_changed(new_max: float)
 signal died()
+signal picked_up_item(item: Interactable)
 
 func _ready() -> void:
 	health_changed.emit(health)
@@ -38,7 +42,30 @@ func _physics_process(_delta):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if current:
-			current.interact(self)
+			if inventory.size() == inventory_size:
+				print("Inventory Full")
+			else:
+				picked_up_item.emit(current)
+				inventory.push_front(current)
+				current.get_parent().remove_child(current)
+
+	elif event.is_action_pressed("item1"):
+		var item = inventory.get(0)
+		inventory.remove_at(0)
+		use_item(item)
+	elif event.is_action_pressed("item2"):
+		var item = inventory.get(1)
+		inventory.remove_at(1)
+		use_item(item)
+	elif event.is_action_pressed("item3"):
+		var item = inventory.get(2)
+		inventory.remove_at(2)
+		use_item(item)
+
+func use_item(item: Interactable) -> void:
+	if item:
+		print(item)
+		item.use(self)
 
 func _pick_best() -> void:
 	# Choose closest interactable
@@ -75,11 +102,13 @@ func add_air_time(extension_time) -> void:
 	var new_time = remaining_air + extension_time
 	if new_time > airTime:
 		air_timer.start(airTime)
+		no_air_tick.stop()
 	else:
 		air_timer.start(new_time)
 		
-func update_max_air(new_max: float) -> void:
-	airTime = new_max
+func update_max_air(add_max: float) -> void:
+	airTime += add_max
+	max_air_changed.emit(airTime)
 
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
@@ -103,8 +132,8 @@ func _on_air_timer_timeout() -> void:
 
 
 func _on_no_air_tick_timeout() -> void:
-	if health > 0:
+	if not air_timer.time_left > 0:
 		apply_damage(1)
 		no_air_tick.start(no_air_damage_tick_time)
-	else:
+	elif not health > 0:
 		died.emit()

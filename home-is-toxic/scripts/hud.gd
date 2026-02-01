@@ -27,8 +27,17 @@ func update_air_bar(new_air: float) -> void:
 	air_bar.set_value_no_signal(new_air)
 
 func update_max_air(new_max: float) -> void:
-	if air_bar:
-		air_bar["max_value"] = new_max
+	if not air_bar:
+		return
+
+	var old_max := air_bar.max_value
+	var ratio := 0.0
+	if old_max > 0.0:
+		ratio = air_bar.value / old_max   # keep the same percentage
+
+	air_bar.max_value = new_max
+	air_bar.value = clamp(ratio * new_max, air_bar.min_value, new_max)
+
 	
 func set_health(current_health: int):
 	for i in range(_children.size()):

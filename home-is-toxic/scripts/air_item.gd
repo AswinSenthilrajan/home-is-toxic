@@ -12,5 +12,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func  interact(_player: Player) -> void:
+func  use(_player: Player) -> void:
 	_player.add_air_time(bonus_air_time)

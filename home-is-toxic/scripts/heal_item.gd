@@ -12,5 +12,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func  interact(_player: Player) -> void:
+func  use(_player: Player) -> void:
 	_player.apply_damage(-1*lifes_healed)
