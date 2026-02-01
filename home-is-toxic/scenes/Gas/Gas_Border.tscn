@@ -7,7 +7,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u1u3"]
 atlas = ExtResource("4_5u1u3")
-region = Rect2(143.20001, 122.4, 64.79999, 35.200005)
+region = Rect2(46.800003, -2.399994, 123.19998, 59.19999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjbx2"]
+atlas = ExtResource("4_5u1u3")
+region = Rect2(141.6, 63.600006, 70.399994, 98.40001)
 
 [node name="GasBorder" type="Node2D" unique_id=409125072]
 script = ExtResource("1_pki4i")
@@ -24,59 +28,70 @@ position = Vector2(0, -512)
 [node name="Gas_left" parent="." unique_id=1156199135 instance=ExtResource("3_fjbx2")]
 position = Vector2(-768, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=524165223]
-position = Vector2(527, -158)
-scale = Vector2(4.2148433, 3.3554688)
-texture = ExtResource("4_5u1u3")
+[node name="Gas_Images_Bottom" type="Node2D" parent="." unique_id=1655321975]
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=772770611]
-position = Vector2(-472, 153)
-rotation = 3.1415927
-scale = Vector2(4.2148433, 3.3554688)
-texture = ExtResource("4_5u1u3")
-
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=675915843]
-position = Vector2(495.00003, 125)
-rotation = 3.1415927
-scale = Vector2(4.2148433, 3.7575805)
-texture = ExtResource("4_5u1u3")
-flip_h = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=505319138]
-position = Vector2(-502, -176)
-scale = Vector2(4.2148433, 3.3554688)
-texture = ExtResource("4_5u1u3")
-flip_h = true
-
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1572043257]
-position = Vector2(-83, -525)
-scale = Vector2(4.2148433, 3.3554688)
+[node name="Sprite2D2" type="Sprite2D" parent="Gas_Images_Bottom" unique_id=1232761567]
+z_index = 3
+position = Vector2(376, 457)
+scale = Vector2(6.4552846, 4.762712)
 texture = SubResource("AtlasTexture_5u1u3")
+flip_h = true
+flip_v = true
 
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=213749383]
-position = Vector2(90, -512)
-scale = Vector2(4.2148433, 3.3554688)
-texture = SubResource("AtlasTexture_5u1u3")
-
-[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=94692163]
-position = Vector2(-68.01759, 524.53125)
-scale = Vector2(4.2148433, 3.3554688)
+[node name="Sprite2D" type="Sprite2D" parent="Gas_Images_Bottom" unique_id=329560810]
+z_index = 3
+position = Vector2(-399.00003, 445)
+scale = Vector2(6.4552846, 4.762712)
 texture = SubResource("AtlasTexture_5u1u3")
 flip_v = true
 
-[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1470834548]
-position = Vector2(104.98241, 537.53125)
-scale = Vector2(4.2148433, 3.3554688)
+[node name="Gas_Images_Top" type="Node2D" parent="." unique_id=2105043079]
+rotation = 3.1415927
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gas_Images_Top" unique_id=661213042]
+z_index = 3
+position = Vector2(376, 457)
+scale = Vector2(6.4552846, 4.762712)
+texture = SubResource("AtlasTexture_5u1u3")
+flip_h = true
+flip_v = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Gas_Images_Top" unique_id=1066512790]
+z_index = 3
+position = Vector2(-399.00003, 445)
+scale = Vector2(6.4552846, 4.762712)
 texture = SubResource("AtlasTexture_5u1u3")
 flip_v = true
 
-[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=137945624]
-position = Vector2(700, -23)
-scale = Vector2(4.2148433, 3.3554688)
-texture = SubResource("AtlasTexture_5u1u3")
+[node name="Gas_Images_right" type="Node2D" parent="." unique_id=883695368]
+position = Vector2(643, -328)
 
-[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=399598553]
-position = Vector2(-724, -16.000002)
-scale = Vector2(4.2148433, 4.0777345)
-texture = SubResource("AtlasTexture_5u1u3")
-flip_h = true
+[node name="Sprite2D2" type="Sprite2D" parent="Gas_Images_right" unique_id=184654138]
+z_index = 3
+position = Vector2(101.934975, 50.686478)
+scale = Vector2(6.4552846, 6.095642)
+texture = SubResource("AtlasTexture_fjbx2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gas_Images_right" unique_id=412808004]
+z_index = 3
+position = Vector2(101.934975, 629.15674)
+scale = Vector2(6.4552846, 5.8743515)
+texture = SubResource("AtlasTexture_fjbx2")
+flip_v = true
+
+[node name="Gas_Images_left" type="Node2D" parent="." unique_id=1404805798]
+position = Vector2(-555, 317)
+rotation = 3.1415927
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gas_Images_left" unique_id=1729965964]
+z_index = 3
+position = Vector2(101.934975, 52.982323)
+scale = Vector2(6.4552846, 6.0487876)
+texture = SubResource("AtlasTexture_fjbx2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gas_Images_left" unique_id=13738188]
+z_index = 3
+position = Vector2(101.934975, 620.1289)
+scale = Vector2(6.4552846, 5.6901097)
+texture = SubResource("AtlasTexture_fjbx2")
+flip_v = true

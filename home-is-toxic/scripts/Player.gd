@@ -24,6 +24,7 @@ signal died()
 signal picked_up_item(item: Interactable)
 
 func _ready() -> void:
+	add_to_group("player")
 	health_changed.emit(health)
 	entered_gas()
 
