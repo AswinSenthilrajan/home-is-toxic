@@ -52,7 +52,7 @@ func set_health(current_health: int):
 
 func add_item(item: Interactable):
 	var slot: HotbarSlot = HotbarSlot.new()
-	var tex: Texture2D = load("res://sprites/"+item.get_class())
+	var tex: Texture2D = load("res://sprites/"+item.get_class()+".png")
 	slot.icon.texture = tex
 	hot_bar.add_child(slot)
 
