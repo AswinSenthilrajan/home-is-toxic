@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: float = 120.0
-@export var sprint_multiplier = 5.0
+@export var sprint_multiplier = 2.0
 @export var max_health: int = 18
 @export var airTime: float = 10.0
 @export var no_air_damage_tick_time: float = 1.0
@@ -10,6 +10,7 @@ class_name Player
 @onready var air_timer: Timer = $Air_Timer
 @onready var no_air_tick: Timer = $No_Air_Tick
 @onready var interact_area: Area2D = $InteractArea
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var nearby: Array[Interactable] = []
 var current: Interactable = null
 var health: float = max_health
@@ -33,10 +34,25 @@ func exited_gas() -> void:
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
+	var animation = "idle"
+	if(dir.x>0):
+		animation = "walk_right"
+	elif(dir.x<0):
+		animation = "walk_left"
+	elif(dir.y>0):
+		animation = "walk_down"
+	elif(dir.y<0):
+		animation = "walk_up"
+	if animated_sprite.animation != animation:
+		animated_sprite.play(animation)
 	velocity = dir * speed;
+	var animation_speed := 1.0
 	
 	if dir != Vector2.ZERO and Input.is_action_pressed("sprint"):
 		velocity *= sprint_multiplier
+		animation_speed = sprint_multiplier
+	if(animated_sprite.speed_scale != animation_speed):
+		animated_sprite.speed_scale = animation_speed
 	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:
